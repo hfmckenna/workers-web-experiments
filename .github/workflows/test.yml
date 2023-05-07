@@ -24,7 +24,13 @@ jobs:
         working-directory: ./cloud-gallery
         run: npm ci
 
-
       - name: Run tests
         working-directory: ./cloud-gallery
         run: npm run check
+
+      - name: Deploy
+        working-directory: ./cloud-gallery
+        run: npm run deploy
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

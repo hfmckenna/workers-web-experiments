@@ -28,10 +28,6 @@ jobs:
         working-directory: ./cloud-gallery
         run: npm run check
 
-      - name: Build
-        working-directory: ./cloud-gallery
-        run: npm run build
-
       - name: Deploy
         working-directory: ./cloud-gallery
         run: npm run deploy

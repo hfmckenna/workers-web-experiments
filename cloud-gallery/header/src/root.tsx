@@ -16,6 +16,7 @@ export const Header = component$(() => {
 			}),
 			headers: {
 				'Content-Type': 'application/json',
+				'Authorization': 'Bearer qke7sqgtkdie'
 			}
 		})
 	})

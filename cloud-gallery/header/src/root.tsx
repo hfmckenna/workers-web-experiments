@@ -1,4 +1,4 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import {$, component$, useStylesScoped$} from "@builder.io/qwik";
 import { Image, useFragmentRoot } from "helpers";
 import styles from "./Header.css?inline";
 import { Slider } from "./Slider/Slider";

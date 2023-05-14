@@ -7,6 +7,9 @@ export const Header = component$(() => {
 	useStylesScoped$(styles);
 	useFragmentRoot();
 	const putRecipe = $(async () => {
+		const token = document.cookie.split('; ')
+		const tokenCookie = token.find(row => row.startsWith('CF_Authorization='))
+		const tokenValue = tokenCookie?.split('=')[1]
 		await fetch('https://author-bff.test.admin.skran.app/v1/recipes', {
 			method: 'PUT',
 			body: JSON.stringify({
@@ -16,7 +19,7 @@ export const Header = component$(() => {
 			}),
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer qke7sqgtkdie'
+				'Authorization': 'Bearer ' + tokenValue
 			}
 		})
 	})

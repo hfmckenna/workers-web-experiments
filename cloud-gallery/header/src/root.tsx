@@ -22,10 +22,11 @@ export const Header = component$(() => {
 	return (
 		<>
 			<Slider />
-			<button onClick$={putRecipe}>PUT ME!</button>
 			<div class="container">
 				<Image alt="Cloudflare logo" src="cf-logo.png" width="74" height="35" />
 				<div class="title">Cloud Gallery</div>
+				<button onClick$={putRecipe}>PUT ME!</button>
+
 				<a href="https://github.com/cloudflare/workers-web-experiments/tree/main/cloud-gallery">
 					<Image
 						alt="Github icon"

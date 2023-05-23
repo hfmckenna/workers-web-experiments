@@ -32,3 +32,11 @@ service = "cloud-gallery-body"
 [[services]]
 binding = "footer"
 service = "cloud-gallery-footer"
+
+[env.test]
+name = "admin-skran-test"
+workers_dev = true
+
+[env.prod]
+name = "admin-skran-prod"
+route = "admin.skran.app/*"

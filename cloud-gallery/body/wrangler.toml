@@ -17,7 +17,17 @@ command = "npm run build"
 # Rebuild when the helper library changes
 watch_dir = ["src", "../helpers/src"]
 
+[env.test]
+name = "cloud-gallery-body-test"
+[[services]]
+binding = "gallery"
+service = "cloud-gallery-gallery-test"
+[[services]]
+binding = "filter"
+service = "cloud-gallery-filter-test"
 
+[env.prod]
+name = "cloud-gallery-body"
 [[services]]
 binding = "gallery"
 service = "cloud-gallery-gallery"

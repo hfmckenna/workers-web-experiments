@@ -17,6 +17,31 @@ command = "npm run build"
 # Rebuild when the helper library changes
 watch_dir = ["src", "../helpers/src"]
 
+
+[env.test]
+name = "admin-skran-test"
+route = { pattern = "test-admin.skran.app", custom_domain = true }
+
+[[services]]
+binding = "header"
+service = "cloud-gallery-header-test"
+[[services]]
+binding = "gallery"
+service = "cloud-gallery-gallery-test"
+[[services]]
+binding = "filter"
+service = "cloud-gallery-filter-test"
+[[services]]
+binding = "body"
+service = "cloud-gallery-body-test"
+[[services]]
+binding = "footer"
+service = "cloud-gallery-footer-test"
+
+[env.prod]
+name = "admin-skran"
+route = "admin.skran.app/*"
+route = { pattern = "admin.skran.app", custom_domain = true }
 [[services]]
 binding = "header"
 service = "cloud-gallery-header"
@@ -32,13 +57,3 @@ service = "cloud-gallery-body"
 [[services]]
 binding = "footer"
 service = "cloud-gallery-footer"
-
-[env.test]
-name = "admin-skran-test"
-workers_dev = true
-route = { pattern = "test-admin.skran.app", custom_domain = true }
-
-[env.prod]
-name = "admin-skran-prod"
-route = "admin.skran.app/*"
-route = { pattern = "admin.skran.app", custom_domain = true }

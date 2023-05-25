@@ -14,3 +14,5 @@ watch_dir = ["src", "../helpers/src"]
 
 [env.prod]
 name = "cloud-gallery-footer"
+[env.test]
+name = "cloud-gallery-footer-test"

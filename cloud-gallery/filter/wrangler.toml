@@ -14,3 +14,5 @@ watch_dir = ["src", "../helpers/src"]
 
 [env.prod]
 name = "cloud-gallery-filter"
+[env.test]
+name = "cloud-gallery-filter-test"

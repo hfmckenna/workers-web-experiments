@@ -27,3 +27,13 @@ services = [
 	{ binding = "body", service = "cloud-gallery-body"},
 	{ binding = "footer", service = "cloud-gallery-footer"}
 ]
+[env.test]
+name = "cloud-gallery-test"
+route = { pattern = "test-admin.skran.app", custom_domain = true }
+services = [
+	{ binding = "header", service = "cloud-gallery-header-test"},
+	{ binding = "gallery", service = "cloud-gallery-gallery-test"},
+	{ binding = "filter", service = "cloud-gallery-filter-test"},
+	{ binding = "body", service = "cloud-gallery-body-test"},
+	{ binding = "footer", service = "cloud-gallery-footer-test"}
+]

@@ -22,3 +22,9 @@ services = [
 	{ binding = "gallery", service = "cloud-gallery-gallery" },
 	{ binding = "filter", service = "cloud-gallery-filter" }
 ]
+[env.test]
+name = "cloud-gallery-body-test"
+services = [
+	{ binding = "gallery", service = "cloud-gallery-gallery-test" },
+	{ binding = "filter", service = "cloud-gallery-filter-test" }
+]

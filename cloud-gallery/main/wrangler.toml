@@ -36,7 +36,9 @@ service = "cloud-gallery-footer"
 [env.test]
 name = "admin-skran-test"
 workers_dev = true
+route = { pattern = "test-admin.skran.app", custom_domain = true }
 
 [env.prod]
 name = "admin-skran-prod"
 route = "admin.skran.app/*"
+route = { pattern = "admin.skran.app", custom_domain = true }

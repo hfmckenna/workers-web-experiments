@@ -20,7 +20,7 @@ watch_dir = ["src", "../helpers/src"]
 
 [env.test]
 name = "cloud-gallery-test"
-route = { pattern = "test-admin.skran.app", custom_domain = true }
+route = "test-admin.skran.app/*"
 
 [[services]]
 binding = "header"
@@ -39,8 +39,9 @@ binding = "footer"
 service = "cloud-gallery-footer-test"
 
 [env.prod]
-name = "admin-skran"
-route = { pattern = "admin.skran.app", custom_domain = true }
+name = "cloud-gallery"
+route = "admin.skran.app/*"
+
 [[services]]
 binding = "header"
 service = "cloud-gallery-header"

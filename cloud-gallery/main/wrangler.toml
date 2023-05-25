@@ -18,6 +18,7 @@ command = "npm run build"
 watch_dir = ["src", "../helpers/src"]
 
 [env.prod]
+name = "cloud-gallery"
 route = { pattern = "admin.skran.app", custom_domain = true }
 
 [[services]]

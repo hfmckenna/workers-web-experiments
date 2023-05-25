@@ -18,9 +18,7 @@ command = "npm run build"
 watch_dir = ["src", "../helpers/src"]
 [env.prod]
 name = "cloud-gallery-body"
-[[services]]
-binding = "gallery"
-service = "cloud-gallery-gallery"
-[[services]]
-binding = "filter"
-service = "cloud-gallery-filter"
+services = [
+	{ binding = "gallery", service = "cloud-gallery-gallery" },
+	{ binding = "filter", service = "cloud-gallery-filter" }
+]

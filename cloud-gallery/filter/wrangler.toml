@@ -13,4 +13,4 @@ command = "npm run build"
 watch_dir = ["src", "../helpers/src"]
 
 [env.prod]
-name = "cloud-gallery-footer"
+name = "cloud-gallery-filter"

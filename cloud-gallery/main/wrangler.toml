@@ -20,19 +20,10 @@ watch_dir = ["src", "../helpers/src"]
 [env.prod]
 name = "cloud-gallery"
 route = { pattern = "admin.skran.app", custom_domain = true }
-
-[[services]]
-binding = "header"
-service = "cloud-gallery-header"
-[[services]]
-binding = "gallery"
-service = "cloud-gallery-gallery"
-[[services]]
-binding = "filter"
-service = "cloud-gallery-filter"
-[[services]]
-binding = "body"
-service = "cloud-gallery-body"
-[[services]]
-binding = "footer"
-service = "cloud-gallery-footer"
+services = [
+	{ binding = "header", service = "cloud-gallery-header"},
+	{ binding = "gallery", service = "cloud-gallery-gallery"},
+	{ binding = "filter", service = "cloud-gallery-filter"},
+	{ binding = "body", service = "cloud-gallery-body"},
+	{ binding = "footer", service = "cloud-gallery-footer"}
+]

@@ -20,7 +20,7 @@ watch_dir = ["src", "../helpers/src"]
 [env.test]
 name = "cloud-gallery-test"
 account_id = "bdf08bcf300a4c3dbabf7f873954e79d"
-route = { pattern = "test-admin.skran.app", custom_domain = true }
+workers_dev = true
 
 [[services]]
 binding = "header"
@@ -41,7 +41,6 @@ service = "cloud-gallery-footer-test"
 [env.prod]
 name = "cloud-gallery"
 account_id = "bdf08bcf300a4c3dbabf7f873954e79d"
-route = { pattern = "admin.skran.app", custom_domain = true }
 
 [[services]]
 binding = "header"

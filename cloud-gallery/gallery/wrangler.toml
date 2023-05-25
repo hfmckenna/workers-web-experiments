@@ -14,9 +14,3 @@ browser_TTL = 31536000 # cache assets for a year.
 command = "npm run build"
 # Rebuild when the helper library changes
 watch_dir = ["src", "../helpers/src"]
-
-[env.test]
-name = "cloud-gallery-gallery-test"
-
-[env.prod]
-name = "cloud-gallery-gallery"

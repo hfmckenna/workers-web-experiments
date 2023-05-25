@@ -11,8 +11,3 @@ main = "server/entry.ssr.js"
 command = "npm run build"
 # Rebuild when the helper library changes
 watch_dir = ["src", "../helpers/src"]
-
-[env.test]
-name = "cloud-gallery-filter-test"
-[env.prod]
-name = "cloud-gallery-filter"

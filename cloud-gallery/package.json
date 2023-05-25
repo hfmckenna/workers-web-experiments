@@ -17,7 +17,8 @@
 		"check:lint": "npm run lint --workspaces --if-present",
 		"check:format": "npm run check-format --workspaces --if-present",
 		"build": "npm run build --workspaces --if-present",
-		"deploy": "npm run deploy --workspaces --if-present",
+		"deploy:test": "npm run deploy:test --workspaces --if-present",
+		"deploy:prod": "npm run deploy:prod --workspaces --if-present",
 		"format": "npm run format --workspaces --if-present"
 	},
 	"author": "",

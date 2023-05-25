@@ -17,6 +17,8 @@ command = "npm run build"
 # Rebuild when the helper library changes
 watch_dir = ["src", "../helpers/src"]
 
+route = { pattern = "admin.skran.app", custom_domain = true }
+
 [[services]]
 binding = "header"
 service = "cloud-gallery-header"

@@ -16,3 +16,10 @@ assets = "./dist"
 command = "npm run build"
 # Rebuild when the helper library changes
 watch_dir = ["src", "../helpers/src"]
+
+[[services]]
+binding = "gallery"
+service = "cloud-gallery-gallery"
+[[services]]
+binding = "filter"
+service = "cloud-gallery-filter"

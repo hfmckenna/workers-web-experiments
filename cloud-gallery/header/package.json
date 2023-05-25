@@ -11,6 +11,8 @@
 		"format": "prettier --write --ignore-path=../.prettierignore .",
 		"start": "npx wrangler dev --local",
 		"deploy": "npx wrangler publish",
+		"deploy:test": "npx wrangler publish --env test",
+		"deploy:prod": "npx wrangler publish --env prod",
 		"typecheck": "tsc --incremental --noEmit"
 	},
 	"devDependencies": {

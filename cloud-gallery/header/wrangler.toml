@@ -6,6 +6,8 @@ main = "server/entry.ssr.js"
 # The client code is generated in the `dist` directory.
 # We use the `assets` config to supply these static files as needed.
 assets = "./dist"
+[dev]
+port = 4001
 [build]
 # Build the SSR code that will run in the Worker.
 command = "npm run build"

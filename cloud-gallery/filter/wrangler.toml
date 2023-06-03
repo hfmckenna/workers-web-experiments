@@ -12,6 +12,8 @@ command = "npm run build"
 # Rebuild when the helper library changes
 watch_dir = ["src", "../helpers/src"]
 
+[dev]
+port = 4004
 [env.prod]
 name = "cloud-gallery-filter"
 [env.test]

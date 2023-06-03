@@ -16,6 +16,8 @@ assets = "./dist"
 command = "npm run build"
 # Rebuild when the helper library changes
 watch_dir = ["src", "../helpers/src"]
+[dev]
+port = 4003
 [env.prod]
 name = "cloud-gallery-body"
 services = [

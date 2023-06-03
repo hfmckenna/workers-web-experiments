@@ -9,6 +9,8 @@ main = "server/entry.ssr.js"
 [assets]
 bucket = "./dist"
 browser_TTL = 31536000 # cache assets for a year.
+[dev]
+port = 4002
 [build]
 # Build the SSR code that will run in the Worker.
 command = "npm run build"

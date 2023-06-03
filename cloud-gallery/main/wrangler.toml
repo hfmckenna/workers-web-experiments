@@ -9,6 +9,8 @@ compatibility_flags = [
 main = "server/entry.ssr.js"
 # assets = { bucket = "./dist", include = ["**", "../../header/dist/**"] }
 assets = "./dist"
+[dev]
+port = 4000
 # Build the SSR code that will run in the Worker.
 [build]
 # The client code is generated in the `dist` directory.

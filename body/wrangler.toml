@@ -16,6 +16,7 @@ assets = "./dist"
 command = "npm run build"
 # Rebuild when the helper library changes
 watch_dir = ["src"]
+
 [env.prod]
 name = "qwik-workers-body"
 [env.test]

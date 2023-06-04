@@ -3,13 +3,13 @@
 	"version": "0.0.0",
 	"description": "",
 	"workspaces": [
-		"./src/helpers",
-		"./src/footer",
-		"./src/header",
-		"./src/filter",
-		"./src/gallery",
-		"./src/body",
-		"./src/main"
+		"helpers",
+		"footer",
+		"header",
+		"filter",
+		"gallery",
+		"body",
+		"main"
 	],
 	"scripts": {
 		"check": "npm run -w helpers build && npm run check:types && npm run check:lint && npm run check:format",

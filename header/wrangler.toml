@@ -1,0 +1,18 @@
+name = "qwik-workers-header"
+
+compatibility_date = "2022-07-25"
+# The SSR code is generated in the `server` directory.
+main = "server/entry.ssr.js"
+# The client code is generated in the `dist` directory.
+# We use the `assets` config to supply these static files as needed.
+assets = "./dist"
+[build]
+# Build the SSR code that will run in the Worker.
+command = "npm run build"
+# Rebuild when the helper library changes
+watch_dir = ["src", "../helpers/src"]
+
+[env.prod]
+name = "qwik-workers-header"
+[env.test]
+name = "qwik-workers-header-test"

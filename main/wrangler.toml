@@ -1,0 +1,41 @@
+name = "qwik-workers"
+
+compatibility_date = "2022-07-25"
+compatibility_flags = [
+  "streams_enable_constructors",
+  "transformstream_enable_standard_constructor",
+]
+# The SSR code is generated in the `server` directory.
+main = "server/entry.ssr.js"
+# assets = { bucket = "./dist", include = ["**", "../../header/dist/**"] }
+assets = "./dist"
+[dev]
+port = 4000
+# Build the SSR code that will run in the Worker.
+[build]
+# The client code is generated in the `dist` directory.
+# We use the `assets` config to supply these static files as needed.
+command = "npm run build"
+# Rebuild when the helper library changes
+watch_dir = ["src", "../helpers/src"]
+
+[env.prod]
+name = "qwik-workers"
+route = { pattern = "admin.skran.app", custom_domain = true }
+services = [
+	{ binding = "header", service = "qwik-workers-header"},
+	{ binding = "gallery", service = "qwik-workers-gallery"},
+	{ binding = "filter", service = "qwik-workers-filter"},
+	{ binding = "body", service = "qwik-workers-body"},
+	{ binding = "footer", service = "qwik-workers-footer"}
+]
+[env.test]
+name = "qwik-workers-test"
+route = { pattern = "test-admin.skran.app", custom_domain = true }
+services = [
+	{ binding = "header", service = "qwik-workers-header-test"},
+	{ binding = "gallery", service = "qwik-workers-gallery-test"},
+	{ binding = "filter", service = "qwik-workers-filter-test"},
+	{ binding = "body", service = "qwik-workers-body-test"},
+	{ binding = "footer", service = "qwik-workers-footer-test"}
+]

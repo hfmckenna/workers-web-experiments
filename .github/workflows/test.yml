@@ -22,6 +22,9 @@ jobs:
           node-version: 20.1.x
 
       - name: Install
+        uses: actions/setup-node@v3
+        with:
+          registry-url: 'https://npm.pkg.github.com'
         run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

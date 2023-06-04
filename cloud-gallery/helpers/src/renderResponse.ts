@@ -1,6 +1,7 @@
 import { StreamWriter } from "@builder.io/qwik";
 import { renderToStream } from "@builder.io/qwik/server";
 import { getBase } from "./base";
+import {QwikManifest} from "@builder.io/qwik/optimizer";
 
 /**
  * Render (SSR) a Qwik application in a Worker and stream it into a Response.
@@ -16,7 +17,7 @@ export async function renderResponse(
 	request: Request,
 	env: Record<string, unknown>,
 	RootNode: any,
-	manifest: unknown,
+	manifest: QwikManifest,
 	containerTagName?: string
 ) {
 	const { writable, readable } = new TransformStream();
@@ -36,7 +37,7 @@ export async function renderResponse(
 		containerTagName,
 		...(!containerTagName ? { containerAttributes: { lang: "en" } } : {}),
 		stream,
-		envData: { request, env, fragmentBase },
+		serverData: { request, env, fragmentBase },
 		qwikLoader: { include: "auto" },
 		base: fragmentBase + "build/",
 	}).finally(() => {

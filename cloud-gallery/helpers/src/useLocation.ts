@@ -1,4 +1,4 @@
-import { useEnvData } from "@builder.io/qwik";
+import { useServerData } from "@builder.io/qwik";
 import { isBrowser } from "./isBrowser";
 
 export type Location = {
@@ -17,7 +17,7 @@ export function useLocation(): Location {
 		return window.location;
 	}
 
-	const request = useEnvData<Request>("request")!;
+	const request = useServerData<Request>("request")!;
 	const { host, hostname, href, origin, search, pathname } = new URL(
 		request.url
 	);

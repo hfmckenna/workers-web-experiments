@@ -1,8 +1,8 @@
-import { component$, SSRStream, useEnvData } from "@builder.io/qwik";
+import { component$, SSRStream, useServerData } from "@builder.io/qwik";
 
 export const FragmentPlaceholder = component$(({ name }: { name: string }) => {
-	const env = useEnvData<Record<string, unknown>>("env")!;
-	const request = useEnvData<Request>("request")!;
+	const env = useServerData<Record<string, unknown>>("env")!;
+	const request = useServerData<Request>("request")!;
 	const decoder = new TextDecoder();
 	return (
 		<SSRStream>

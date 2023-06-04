@@ -2,10 +2,8 @@ import {
 	component$,
 	useStylesScoped$,
 	useStore,
-	useRef,
-	Ref,
 	$,
-	useOnDocument,
+	useOnDocument, useSignal, Signal,
 } from "@builder.io/qwik";
 import styles from "./Filter.css?inline";
 import { tags } from "../../constants";
@@ -34,19 +32,19 @@ export const Filter = component$(() => {
 			inputValue: initialValue,
 			searchResults: [],
 		},
-		{ recursive: true }
+		{ deep: true }
 	);
 
-	const listRef = useRef();
-	const containerRef = useRef();
+	const listRef = useSignal<Element>();
+	const containerRef = useSignal<Element>();
 
 	// Dismiss the results after clicking outside
 	useOnDocument(
 		"click",
 		$((event) => {
-			if (!containerRef.current || !event.target) return;
+			if (!containerRef.value || !event.target) return;
 
-			if (!containerRef.current.contains(event.target as Node)) {
+			if (!containerRef.value.contains(event.target as Node)) {
 				state.searchResults = [];
 			}
 		})
@@ -56,6 +54,7 @@ export const Filter = component$(() => {
 		<div ref={containerRef}>
 			<div>
 				<input
+					preventdefault:keyup
 					tabIndex={0}
 					autoFocus={true}
 					autoCorrect="off"
@@ -68,8 +67,7 @@ export const Filter = component$(() => {
 						const currentValue = (ev.target as HTMLInputElement).value;
 
 						if (ev.key === "ArrowDown") {
-							ev.preventDefault();
-							const firstLink = listRef.current?.querySelector(
+							const firstLink = listRef.value?.querySelector(
 								`:first-child > a`
 							) as HTMLAnchorElement;
 							firstLink.focus();
@@ -78,9 +76,8 @@ export const Filter = component$(() => {
 
 						if (ev.key === "Enter") {
 							if (state.searchResults.length === 1) {
-								ev.preventDefault();
 								state.inputValue = state.searchResults[0];
-								const firstLink = listRef.current?.querySelector(
+								const firstLink = listRef.value?.querySelector(
 									`:first-child > a`
 								) as HTMLAnchorElement;
 								firstLink.click();
@@ -112,13 +109,13 @@ export const Filter = component$(() => {
 });
 
 export const SearchResults = component$(
-	(props: { state: State; listRef: Ref }) => {
+	(props: { state: State; listRef: Signal<Element | undefined> }) => {
 		useStylesScoped$(styles);
 
 		const searchResults = props.state.searchResults;
 
 		const getListElement = $((i: number) => {
-			return props.listRef.current?.querySelector(
+			return props.listRef.value?.querySelector(
 				`:nth-child(${i + 1}) > a`
 			) as HTMLAnchorElement;
 		});
@@ -128,15 +125,14 @@ export const SearchResults = component$(
 				{searchResults.map((result, i) => {
 					return (
 						<li
+							preventdefault:keydown
 							class="result-list-item"
 							onKeyDown$={async (ev) => {
 								if (ev.key === "ArrowDown") {
-									ev.preventDefault();
 									if (i === searchResults.length - 1) return;
 									const element = await getListElement(i + 1);
 									element.focus();
 								} else if (ev.key === "ArrowUp") {
-									ev.preventDefault();
 									if (i === 0) return;
 									const element = await getListElement(i - 1);
 									element.focus();

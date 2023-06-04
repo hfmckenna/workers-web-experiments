@@ -1,7 +1,7 @@
 const cookieBytesLimit = 4096;
 const millisInAMonth = 2628e6;
 const cookiesPrefix = "multi_worker_demo__";
-import { useEnvData } from "@builder.io/qwik";
+import { useServerData } from "@builder.io/qwik";
 import { parse } from "cookie";
 import { isBrowser } from "./isBrowser";
 
@@ -31,7 +31,7 @@ export function getCookie(name: string) {
 	if (isBrowser()) {
 		cookieString = document.cookie || "";
 	} else {
-		const request = useEnvData<Request>("request")!;
+		const request = useServerData<Request>("request")!;
 		const cookie = request.headers.get("cookie");
 		cookieString = cookie ?? "";
 	}

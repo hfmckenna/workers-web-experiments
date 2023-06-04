@@ -22,15 +22,12 @@ jobs:
           node-version: 20.1.x
 
       - name: Install
-        working-directory: ./cloud-gallery
         run: npm ci
 
       - name: Run tests
-        working-directory: ./cloud-gallery
         run: npm run check
 
       - name: Deploy
-        working-directory: ./cloud-gallery
         run: npm run deploy:test
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

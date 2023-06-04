@@ -1,0 +1,31 @@
+{
+	"name": "qwik-multi-worker",
+	"version": "0.0.0",
+	"description": "",
+	"workspaces": [
+		"./src/helpers",
+		"./src/footer",
+		"./src/header",
+		"./src/filter",
+		"./src/gallery",
+		"./src/body",
+		"./src/main"
+	],
+	"scripts": {
+		"check": "npm run -w helpers build && npm run check:types && npm run check:lint && npm run check:format",
+		"check:types": "npm run typecheck --workspaces --if-present",
+		"check:lint": "npm run lint --workspaces --if-present",
+		"check:format": "npm run check-format --workspaces --if-present",
+		"build": "npm run build --workspaces --if-present",
+		"deploy:test": "npm run deploy:test --workspaces --if-present",
+		"deploy:prod": "npm run deploy:prod --workspaces --if-present",
+		"format": "npm run format --workspaces --if-present"
+	},
+	"author": "",
+	"license": "Apache-2.0",
+	"devDependencies": {
+		"concurrently": "^7.4.0",
+		"prettier": "^2.7.1",
+		"wrangler": "^2.0.28"
+	}
+}

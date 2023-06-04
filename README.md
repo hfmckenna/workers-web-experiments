@@ -1,4 +1,4 @@
-# Cloud Gallery demo
+# Qwik Workers demo
 
 This project demonstrates how we can architect an application built from
 a tree of "fragments", each independently deployed to Cloudflare Workers.

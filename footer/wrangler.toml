@@ -10,10 +10,8 @@ assets = "./dist"
 # Build the SSR code that will run in the Worker.
 command = "npm run build"
 # Rebuild when the helper library changes
-watch_dir = ["src", "../helpers/src"]
+watch_dir = ["src"]
 
-[dev]
-port = 4005
 [env.prod]
 name = "qwik-workers-footer"
 [env.test]

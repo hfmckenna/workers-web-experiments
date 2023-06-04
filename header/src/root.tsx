@@ -1,7 +1,6 @@
 import { $, component$, useStylesScoped$ } from "@builder.io/qwik";
-import { Image, useFragmentRoot } from "helpers";
+import { Image, useFragmentRoot } from "@hfmckenna/skran-app-tools";
 import styles from "./Header.css?inline";
-import { Slider } from "./Slider/Slider";
 
 export const Header = component$(() => {
 	useStylesScoped$(styles);
@@ -27,7 +26,6 @@ export const Header = component$(() => {
 	});
 	return (
 		<>
-			<Slider />
 			<div class="container">
 				<Image alt="Cloudflare logo" src="cf-logo.png" width="74" height="35" />
 				<div class="title">Cloud Gallery</div>

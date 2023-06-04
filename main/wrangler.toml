@@ -17,7 +17,7 @@ port = 4000
 # We use the `assets` config to supply these static files as needed.
 command = "npm run build"
 # Rebuild when the helper library changes
-watch_dir = ["src", "../helpers/src"]
+watch_dir = ["src"]
 
 [env.prod]
 name = "qwik-workers"

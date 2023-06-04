@@ -2,7 +2,6 @@
 	"name": "main",
 	"description": "Simple Qwik header container component",
 	"scripts": {
-		"prebuild": "npm run -w helpers build",
 		"build": "npm run build.client && npm run build.ssr",
 		"build.client": "vite build",
 		"build.ssr": "vite build --ssr src/entry.ssr.tsx",
@@ -16,6 +15,7 @@
 	},
 	"devDependencies": {
 		"@builder.io/qwik": "1.1.4",
+		"@hfmckenna/skran-app-tools": "0.210.1",
 		"@types/eslint": "8.40.0",
 		"@types/express": "4.17.17",
 		"@types/node": "latest",
@@ -23,7 +23,6 @@
 		"@typescript-eslint/parser": "5.59.8",
 		"eslint": "8.42.0",
 		"eslint-plugin-qwik": "1.1.4",
-		"helpers": "file:../helpers",
 		"prettier": "2.8.8",
 		"sass": "^1.55.0",
 		"typescript": "5.1.3",

@@ -1,4 +1,4 @@
-import { FragmentPlaceholder } from "helpers";
+import { FragmentPlaceholder } from "@hfmckenna/skran-app-tools";
 import "./global.scss";
 import "./normalize.css";
 import "./layout.css";
